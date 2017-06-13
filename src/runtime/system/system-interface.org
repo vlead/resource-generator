@@ -36,7 +36,7 @@ class SystemInterface():
         System.create_dir('build')
         System.change_dir('build/')
         System.create_dir(repo_name)
-        build_path = Config.TMP_PATH + '/build/' + repo-name + '/'
+        build_path = Config.TMP_PATH + '/build/' + repo_name + '/'
         
         # clone the repo from github
         System.change_dir(Config.TMP_PATH)
