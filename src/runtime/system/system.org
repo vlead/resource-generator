@@ -40,7 +40,7 @@ class System():
 
     @staticmethod
     def create_dir(dir_name):
-        if os.listdir(os.getcwd()).index(dir_name) == -1:
+        if dir_name not in os.listdir(os.getcwd()):
             os.mkdir(dir_name)
 
     @staticmethod
