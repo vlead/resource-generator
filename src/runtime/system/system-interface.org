@@ -1,5 +1,5 @@
 
-#+TITLE: System Interface implementation for translators
+#+TITLE: System Interface implementation
 #+AUTHOR: VLEAD
 #+SETUPFILE: ../../org-templates/level-2.org
 #+TAGS: boilerplate(b)
@@ -29,30 +29,26 @@ class SystemInterface():
 #+NAME: methods_system_interface
 #+BEGIN_SRC python
     @staticmethod
-    def create_experiment(experiment_dict, content_type):
-        user = System.get_user()
-        org = System.get_org(user)
-        repo_name = experiment_dict['name'].replace(" ", "-") + "-" + experiment_dict['id']
-        System.create_repo(org, repo_name)
-        repo = System.get_repo(org, repo_name)
-        # add makefile here
-        # check makefile contents
-        System.create_file(repo, "README." + content_type, "")
-        # add the specification file
-        for section in experiment_dict['sections']:
-            System.create_file(repo, section.lower() + "-" + experiment_dict['id']  +  "." + content_type, "/src")
-
-    @staticmethod
-    def create_openedx_lab(labname, data_json):
-        # Should be modified if the name can't be unique
-        filename = Config.LABSPEC
+    def build_resource(url):
+        repo_name = url.split('/')[-1]
+        # create the build direcotry
+        System.change_dir(Config.TMP_PATH)
+        System.create_dir('build')
+        System.change_dir('build/')
+        System.create_dir(repo_name)
+        build_path = Config.TMP_PATH + '/build/' + repo-name + '/'
         
-        System.gen_lab_dir(labname)
-        System.gen_json_file(data_json, Config.LABPATH + "/" + labname + "/" + filename)
-        System.execute_python(Config.OPENEDX_SCRIPT, [os.path.abspath(Config.LABPATH+"/"+labname)])
-        System.pack_lab(labname)
-        System.del_lab_dir(labname)
+        # clone the repo from github
+        System.change_dir(Config.TMP_PATH)
+        System.clone_git_repo(url)
+        source_path = repo_name+'/src/'
+        System.change_dir(source_path)
 
+        # generate the files
+        files = System.get_files()
+        for file in files:
+            System.build(file, build_path)
+        
 #+END_SRC
 
 ** Imports
@@ -60,10 +56,8 @@ class SystemInterface():
 #+BEGIN_SRC python
 from runtime.system.system import System
 from runtime.config.config import Config
-import os
 
 #+END_SRC
-
 
 * Tangle :boilerplate:
 #+BEGIN_SRC python :tangle system_interface.py :eval no :noweb yes

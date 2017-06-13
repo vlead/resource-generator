@@ -7,9 +7,9 @@
 
 * Introduction
   This document illustrates building of REST API for the resource-generator
+  using =pandoc=
 
 * REST
-
 ** Blueprint
 #+NAME: blueprint
 #+BEGIN_SRC python
@@ -17,25 +17,24 @@ api = Blueprint('APIs', __name__)
 
 #+END_SRC
 
-
-** index
+** index route
 #+NAME: index_route
 #+BEGIN_SRC python
 @api.route("/", methods=['GET'])
-def index(request): # redirect to index.org of documentation
+def index(): # redirect to index.org of documentation
     pass
 
 #+END_SRC
-
 
 ** API heading
    
 *** API design
     
-    - URL :: /
-    - METHOD ::
+    - URL :: /resource
+    - METHOD :: POST
     - PAYLOAD ::
          #+BEGIN_EXAMPLE
+         'https://github.com/test-platform-to-to-deleted/Parallel-and-distributed-processing-e000121'
          #+END_EXAMPLE
     - SUCCESS Response :: 200 OK
     - ERROR Response :: 400
@@ -43,12 +42,20 @@ def index(request): # redirect to index.org of documentation
 *** API
 #+NAME: create_experiment_route
 #+BEGIN_SRC python
+@api.route("/resource", methods=['POST'])
+def resource():
+    if request.method == 'POST':
+        try:
+            url = request.form['url']
+            SystemInterface.build_resource(url)
+            return make_response("success: OK", 200, None)
+        except Exception as e:
+            return make_response(str(e), 400, None)
 #+END_SRC
 
 * Imports
 #+NAME: imports_api
 #+BEGIN_SRC python
-import json, yaml
 from flask import Blueprint, session, request, make_response, \
     jsonify, url_for, abort
 from runtime.system.system_interface import *
