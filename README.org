@@ -1,0 +1,4 @@
+#+NAME: Resource Generator
+
+This is a microservice which takes the url of a git repo and generates HTML
+files (resources) from the markup files present in the repo.
