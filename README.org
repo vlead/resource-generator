@@ -1,4 +1,10 @@
-#+NAME: Resource Generator
+#+TITLE: Resource Generator
+#+AUTHOR: VLEAD
+#+DATE: [2017-06-13 Tue]
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
 
+* Introduction
 This is a microservice which takes the url of a git repo and generates HTML
 files (resources) from the markup files present in the repo.
