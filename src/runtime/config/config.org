@@ -1,0 +1,59 @@
+#+title: Configuration Parameters
+#+AUTHOR: VLEAD
+#+SETUPFILE: ../../org-templates/level-2.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Introduction
+
+#+NAME: class_config
+#+BEGIN_SRC python
+class Config:
+
+    # Github admin user key
+    USER_KEY = "c015c625c82ad0611564e7f4dbf4c3c49c9180b7"
+
+    # Github org ID
+    # ORG_ID = 26247085
+
+    # Github org URL
+    ORG_URL = "https://github.com/test-platform-to-to-deleted/"
+
+    # use Exceptions module here to show
+    # "Cannot initialize error"
+    def __init__(self):
+        pass
+
+#+END_SRC
+
+* Application Configuration
+  This contains the Flask configuration parameters for the application.
+#+NAME: app_config
+#+BEGIN_SRC python
+# List of allowed origins for CORS
+ALLOWED_ORIGINS = "['*']"
+
+# List of allowed IPs
+WHITELIST_IPS = ["127.0.0.1"]
+
+# Configure your log paths
+LOG_FILE_DIRECTORY = 'logs'
+LOG_FILE = 'translators.log'
+
+# Log level for the application
+# 10=DEBUG, 20=INFO, 30=WARNING, 40=ERROR, 50=CRITICAL
+LOG_LEVEL = 10
+
+#+END_SRC
+
+* Tangle
+ * System Configuration
+#+BEGIN_SRC python :tangle config.py :eval no :noweb yes
+<<class_config>>
+#+END_SRC
+
+ * app_config
+#+BEGIN_SRC python :tangle app_config.py :eval no :noweb yes
+<<app_config>>
+#+END_SRC
