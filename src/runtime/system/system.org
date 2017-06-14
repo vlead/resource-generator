@@ -54,7 +54,8 @@ class System():
     @staticmethod
     def build(file_name, output_path):
         output_file_path = output_path + file_name.split('.')[0]+'.html'
-        os.system('pandoc -f org %s -o %s' % (file_name, output_file_path))
+        file_type = file_name.split('.')[-1]
+        os.system('pandoc -f %s %s -o %s' % (file_type, file_name, output_file_path))
 
     @staticmethod
     def del_dir(dir_name):
