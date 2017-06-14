@@ -8,7 +8,7 @@
 
 The =Config= package holds one module
 
- - [[./config.org][=Config=]]
+ - =[[./config.org][Config]]=
 
 
 * Tangle                                                        :boilerplate:

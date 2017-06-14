@@ -1,4 +1,4 @@
-#+TITLE: The Translator Module
+#+TITLE: The Resource Generator
 #+AUTHOR: VLEAD
 #+SETUPFILE: ./org-templates/level-0.org
 #+TAGS: boilerplate(b)
@@ -6,6 +6,9 @@
 #+OPTIONS: ^:nil
 
 * Introduction
+  This is a microservice which takes markup files of the resources from the
+  experiment repo and builds them to create resources, i.e., HTML files.
+
 * Design of the application
 * Components of the application directory
 * Tangle

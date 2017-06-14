@@ -14,9 +14,15 @@ cd build/code
 export PYTHONPATH=$(pwd)
 #+END_SRC
 
-* Set temporary path to create the output directories
+* Set temporary path to create the build directorie
   #+BEGIN_SRC bash
   vim runtime/config/config.py
   #+END_SRC
 
   Set =SYSTEMPATH= variable
+
+* Set proxies if you have any
+  #+BEGIN_EXAMPLE
+  export http_proxy="proxy.iiit.ac.in:8080"
+  export https_proxy="proxy.iiit.ac.in:8080"
+  #+END_EXAMPLE

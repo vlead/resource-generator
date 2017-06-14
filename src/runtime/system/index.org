@@ -1,4 +1,4 @@
-#+TITLE: The System Implementation of translators
+#+TITLE: The System Implementation of Resource Generator
 #+AUTHOR: VLEAD
 #+SETUPFILE: ../../org-templates/level-2.org
 #+TAGS: boilerplate(b)
@@ -8,9 +8,9 @@
 * Introduction
   This package contains the following
 
-  - [[./system.org][=System=]]
+  - =[[./system.org][System]]=
   
-  - [[./system-interface.org][=System Interface=]]
+  - =[[./system-interface.org][System Interface]]=
 
 * Tangle
 #+BEGIN_SRC python :eval no :tangle __init__.py
