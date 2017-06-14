@@ -56,6 +56,10 @@ class System():
         output_file_path = output_path + file_name.split('.')[0]+'.html'
         os.system('pandoc -f org %s -o %s' % (file_name, output_file_path))
 
+    @staticmethod
+    def del_dir(dir_name):
+        os.system('rm -rf %s' % dir_name)
+
 #+END_SRC
 
 ** Imports

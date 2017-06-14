@@ -48,6 +48,10 @@ class SystemInterface():
         files = System.get_files()
         for file in files:
             System.build(file, build_path)
+
+        # delete the cloned repo
+        System.change_dir(Config.TMP_PATH)
+        System.del_dir(repo_name)
         
 #+END_SRC
 
