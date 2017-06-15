@@ -7,7 +7,7 @@
 
 The =runtime= of the application is defined by:
 
- - =[[./rest/index.org][REST API]]=
+ - [[./rest/index.org][=REST API=]]
 
  - =[[./system/index.org][System]]=
 
