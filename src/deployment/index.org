@@ -35,3 +35,9 @@ export PYTHONPATH=$(pwd)
   export http_proxy="proxy.iiit.ac.in:8080"
   export https_proxy="proxy.iiit.ac.in:8080"
   #+END_EXAMPLE
+
+* Run the app
+  #+BEGIN_EXAMPLE
+  cd runtime/rest/
+  python app.py
+  #+END_EXAMPLE
