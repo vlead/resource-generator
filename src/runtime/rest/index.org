@@ -9,9 +9,9 @@
 * Introduction
   The REST package holds two modules
 
-  - =[[./app.org][App]]=
+  - [[./app.org][=App=]]
 
-  - =[[./api.org][API]]=
+  - [[./api.org][=API=]]
 
 * Tangle
 #+BEGIN_SRC python :eval no :tangle __init__.py
