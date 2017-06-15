@@ -8,6 +8,15 @@
 * Introduction
   This document will illustrate the process for setting up the application
 
+* Install =pandoc=
+** Installing =pandoc= in Mac OSX using =brew=
+   #+BEGIN_EXAMPLE
+   brew install pandoc
+   #+END_EXAMPLE
+** Installing =pandoc= in Ubuntu 14.04 LTS using =apt-get=
+   #+BEGIN_EXAMPLE
+   sudo apt-get install pandoc
+   #+END_EXAMPLE
 * Set Python path during runtime
 #+BEGIN_SRC bash
 cd build/code
