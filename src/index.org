@@ -10,6 +10,11 @@
   experiment repo and builds them to create resources, i.e., HTML files.
 
 * Design of the application
+** Manual Process
+   + Clones the Github repository.
+   + Convert all the source files from =md= or =org= to =html= using =pandoc=.
+   + Stores in the temporary direction.
+
 * Components of the application directory
 * Tangle
 #+BEGIN_SRC python :eval no :tangle __init__.py
