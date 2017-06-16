@@ -24,7 +24,7 @@ class Config:
     # "Cannot initialize error"
 
     # Path of temporary directory
-    TMP_PATH = "/Users/sounakpradhan/Documents/test"
+    TMP_PATH = "/Users/adityatodi/projects/test"
 
     def __init__(self):
         pass
