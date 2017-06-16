@@ -1,0 +1,29 @@
+#+title: Test that system creates directory
+#+AUTHOR: VLEAD
+#+SETUPFILE: ../../../org-templates/level-3.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Test
+** Imports
+#+BEGIN_SRC python :tangle test_create_dir.py
+from runtime.system.system_tests.harness import TestHarness
+from runtime.system.system import System
+
+#+END_SRC
+   
+   
+** Test Case
+#+BEGIN_SRC python :tangle test_create_dir.py
+
+class TestCreateDir(TestHarness):
+
+    def test_check_build(self):
+        print "test_create_dir"
+        dir_name = "test_dir"
+        System.create_dir(dir_name)
+        System.del_dir(dir_name)
+
+#+END_SRC
+

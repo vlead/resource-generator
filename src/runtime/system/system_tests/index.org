@@ -1,0 +1,30 @@
+#+title: Test Setup for System
+#+AUTHOR: VLEAD
+#+SETUPFILE: ../../org-templates/level-3.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Test Harness 
+* Imports
+#+BEGIN_SRC python :tangle harness.py
+from unittest import TestCase
+
+#+END_SRC
+
+** Class TestHarness 
+#+BEGIN_SRC python :tangle harness.py
+
+class TestHarness(TestCase):
+    TESTING = True
+
+#+END_SRC
+   
+* Package
+
+#+BEGIN_SRC python :eval no :tangle __init__.py
+print "runtime.system.tests package"
+
+#+END_SRC
+  
+  
