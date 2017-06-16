@@ -1,0 +1,31 @@
+#+title: Test with wrong type of arguments
+#+AUTHOR: VLEAD
+#+SETUPFILE: ../../../org-templates/level-5.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Test
+  
+** Imports
+#+BEGIN_SRC python :tangle test_wrong_arg_types.py
+from runtime.rest.tests.harness import TestHarness
+
+#+END_SRC
+
+
+** Test Case
+#+BEGIN_SRC python :tangle test_wrong_arg_types.py
+
+class TestWrongArguments(TestHarness):
+
+    def test_wrong_arg_types(self):
+        print "test_with_wrong_type_arguments"
+
+        payload = dict(url='https://github.com/test-platform-to-to-deleted/random-repository')
+
+        response = self.client.post("/resource", data = payload)
+
+        self.assertEqual(response.status_code, 400)
+
+#+END_SRC

@@ -1,0 +1,31 @@
+#+title: Test that correct github repo builds
+#+AUTHOR: VLEAD
+#+SETUPFILE: ../../../../../org-templates/level-5.org
+#+TAGS: boilerplate(b)
+#+EXCLUDE_TAGS: boilerplate
+#+OPTIONS: ^:nil
+
+* Test
+** Imports
+#+BEGIN_SRC python :tangle test_check_build.py
+from runtime.rest.tests.harness import TestHarness
+
+#+END_SRC
+
+   
+** Test Case
+#+BEGIN_SRC python :tangle test_check_build.py
+
+class TestCheckBuild(TestHarness):
+
+    def test_check_build(self):
+        print "test_check_build"
+
+        payload = dict(url='https://github.com/test-platform-to-to-deleted/Parallel-and-distributed-processing-e99867')
+
+        response = self.client.post("/resource", data = payload)
+
+        self.assertEqual(response.status_code, 200)
+
+#+END_SRC
+
