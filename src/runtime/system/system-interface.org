@@ -41,7 +41,7 @@ class SystemInterface():
         # clone the repo from github
         System.change_dir(Config.TMP_PATH)
         System.clone_git_repo(url)
-        source_path = repo_name+'/src/'
+        source_path = repo_name + '/src/'
         System.change_dir(source_path)
 
         # generate the files
