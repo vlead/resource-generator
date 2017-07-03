@@ -13,7 +13,7 @@
 
 * The =System Interface= class
 
-** Constructor
+** [#B] Constructor
 #+NAME: class_system_interface
 #+BEGIN_SRC python
 class SystemInterface():
@@ -25,30 +25,52 @@ class SystemInterface():
 #+END_SRC
 
 ** Methods
-
-#+NAME: methods_system_interface
+   First, =System Interface= will create the build directory where the resources will be stored.
+#+NAME: methods_system_interface_1
 #+BEGIN_SRC python
     @staticmethod
     def build_resource(url):
         repo_name = url.split('/')[-1]
+        
         # create the build direcotry
         System.change_dir(Config.TMP_PATH)
         System.create_dir('build')
         System.change_dir('build/')
         build_path = Config.TMP_PATH + '/build/'
-        
+
+#+END_SRC
+
+   =System Interface= will now clone the repo from GitHub in the temporary directory.
+#+NAME: methods_system_interface_2
+#+BEGIN_SRC python
         # clone the repo from github
         System.change_dir(Config.TMP_PATH)
         System.clone_git_repo(url)
         source_path = repo_name
         System.change_dir(source_path)
-        
+
+#+END_SRC
+
+   =System Interface= will now build the resource using the makefile provided.
+#+NAME: methods_system_interface_3
+#+BEGIN_SRC python
         # build the resources
         System.build()
         
+#+END_SRC
+
+   =System Interface= will now copy the built directory from the
+   cloned repo to the temporary path.
+#+NAME: methods_system_interface_4
+#+BEGIN_SRC python
         # copy the built files to the tmp path
         System.copy(repo_name, build_path)
-        
+
+#+END_SRC
+
+   =System Interface= will now perform the cleanup tasks such as deleting the cloned repo.
+#+NAME: methods_system_interface_5
+#+BEGIN_SRC python
         # clean up tasks
         System.change_dir(Config.TMP_PATH)
         System.del_dir(repo_name)
@@ -67,5 +89,9 @@ from runtime.config.config import Config
 #+BEGIN_SRC python :tangle system_interface.py :eval no :noweb yes
 <<imports_system_interface>>
 <<class_system_interface>>
-<<methods_system_interface>>
+<<methods_system_interface_1>>
+<<methods_system_interface_2>>
+<<methods_system_interface_3>>
+<<methods_system_interface_4>>
+<<methods_system_interface_5>>
 #+END_SRC

@@ -9,3 +9,7 @@ src/style
 src/sitemap.org
 src/sitemap.org~
 .PAT
+*.html
+*.py
+*~
+#*

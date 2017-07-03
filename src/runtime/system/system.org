@@ -31,37 +31,75 @@ class System():
    specified in the [[../config/config.org][=Configuration=]] of the application. The packaged lab
    structure is generated using the structure generator for open edX module and the
    corresponding configuration parameters.
-
-#+NAME: methods_system
+*** =change_dir=
+    This method changes the present working directory (pwd).
+#+NAME: methods_system_1
 #+BEGIN_SRC python
     @staticmethod
     def change_dir(path):
         os.chdir(path)
 
+#+END_SRC
+
+*** =create_dir=
+    This method creates a new directory of a particular name in the pwd.
+#+NAME: methods_system_2
+#+BEGIN_SRC python
     @staticmethod
     def create_dir(dir_name):
         if dir_name not in os.listdir(os.getcwd()):
             os.mkdir(dir_name)
 
+#+END_SRC
+
+*** =clone_git_repo=
+    This method clones a GitHub repo using git and takes the url of the repo as an argument.
+#+NAME: methods_system_3
+#+BEGIN_SRC python
     @staticmethod
     def clone_git_repo(url):
         os.system('git clone %s' % url)
 
+#+END_SRC
+
+*** =get_files=
+    This method returns a list with all the files in the pwd.
+#+NAME: methods_system_4
+#+BEGIN_SRC python
     @staticmethod
     def get_files():
         return os.listdir(os.getcwd())
 
+#+END_SRC
+
+*** =build=
+    This method builds the resources.
+#+NAME: methods_system_5
+#+BEGIN_SRC python
     @staticmethod
     def build():
         os.system('make -k all')
 
+#+END_SRC
+
+*** =del_dir=
+    This method deletes a directory and takes the name of the directory to be deleted as an argument.
+#+NAME: methods_system_6
+#+BEGIN_SRC python
     @staticmethod
     def del_dir(dir_name):
         os.system('rm -rf %s' % dir_name)
 
+#+END_SRC
+
+*** =copy=
+    This method copies a directory or a file from one path to another.
+#+NAME: methods_system_7
+#+BEGIN_SRC python
     @staticmethod
     def copy(source, dest):
         os.system('cp -r %s %s' % (source, dest))
+
 #+END_SRC
 
 ** Imports
@@ -73,9 +111,16 @@ import os
 
 #+END_SRC
 
+
 * Tangle                                                        :boilerplate:
 #+BEGIN_SRC python :tangle system.py :eval no :noweb yes
 <<imports_system>>
 <<class_system>>
-<<methods_system>>
+<<methods_system_1>>
+<<methods_system_2>>
+<<methods_system_3>>
+<<methods_system_4>>
+<<methods_system_5>>
+<<methods_system_6>>
+<<methods_system_7>>
 #+END_SRC
