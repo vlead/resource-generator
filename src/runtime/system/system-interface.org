@@ -35,24 +35,24 @@ class SystemInterface():
         System.change_dir(Config.TMP_PATH)
         System.create_dir('build')
         System.change_dir('build/')
-        System.create_dir(repo_name)
-        build_path = Config.TMP_PATH + '/build/' + repo_name + '/'
+        build_path = Config.TMP_PATH + '/build/'
         
         # clone the repo from github
         System.change_dir(Config.TMP_PATH)
         System.clone_git_repo(url)
-        source_path = repo_name+'/src/'
+        source_path = repo_name
         System.change_dir(source_path)
-
-        # generate the files
-        files = System.get_files()
-        for file in files:
-            System.build(file, build_path)
-
-        # delete the cloned repo
+        
+        # build the resources
+        System.build()
+        
+        # copy the built files to the tmp path
+        System.copy(repo_name, build_path)
+        
+        # clean up tasks
         System.change_dir(Config.TMP_PATH)
         System.del_dir(repo_name)
-        
+
 #+END_SRC
 
 ** Imports
