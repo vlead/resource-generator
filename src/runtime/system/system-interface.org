@@ -13,7 +13,7 @@
 
 * The =System Interface= class
 
-** [#B] Constructor
+** Constructor
 #+NAME: class_system_interface
 #+BEGIN_SRC python
 class SystemInterface():
