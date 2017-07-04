@@ -22,8 +22,8 @@ api = Blueprint('APIs', __name__)
 #+BEGIN_SRC python
 @api.route("/", methods=['GET'])
 def index():
-    return """<h1>Resource-Generator Running Dum"</h1>
-<a href="https://github.com/vlead/resource-generator">https://github.com/vlead/resource-generator</a>    
+    return """<h1>Resource-Generator Running Dum</h1>
+<a href="https://github.com/vlead/resource-generator">https://github.com/vlead/resource-generator</a>"""
 
 #+END_SRC
 
