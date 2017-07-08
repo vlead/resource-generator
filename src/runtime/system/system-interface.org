@@ -13,7 +13,7 @@
 
 * The =System Interface= class
 
-** [#B] Constructor
+** Constructor
 #+NAME: class_system_interface
 #+BEGIN_SRC python
 class SystemInterface():
@@ -68,15 +68,23 @@ class SystemInterface():
 
 #+END_SRC
 
-   =System Interface= will now perform the cleanup tasks such as deleting the cloned repo.
+   =System Interface will now copy the files to content server.
 #+NAME: methods_system_interface_5
+#+BEGIN_SRC python 
+        # copy the files to the content server
+        source_path = Config.TMP_PATH + '/build/' + source_path
+        System.copy(source_path, Config.CS_DEST)
+
+#+END_SRC
+
+   =System Interface= will now perform the cleanup tasks such as deleting the cloned repo.
+#+NAME: methods_system_interface_6
 #+BEGIN_SRC python
         # clean up tasks
         System.change_dir(Config.TMP_PATH)
         System.del_dir(repo_name)
 
 #+END_SRC
-
 ** Imports
 #+NAME: imports_system_interface
 #+BEGIN_SRC python
@@ -94,4 +102,5 @@ from runtime.config.config import Config
 <<methods_system_interface_3>>
 <<methods_system_interface_4>>
 <<methods_system_interface_5>>
+<<methods_system_interface_6>>
 #+END_SRC

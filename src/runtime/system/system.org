@@ -98,7 +98,7 @@ class System():
 #+BEGIN_SRC python
     @staticmethod
     def copy(source, dest):
-        os.system('cp -r %s %s' % (source, dest))
+        os.system('sudo rsync -a %s %s' % (source, dest))
 
 #+END_SRC
 

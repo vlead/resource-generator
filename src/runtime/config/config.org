@@ -14,7 +14,10 @@
 class Config:
 
     # Path of temporary directory
-    TMP_PATH = "/Users/adityatodi/projects/test"
+    TMP_PATH = "/var/www/data"
+
+    # Path of storage in Content Server
+    CS_DEST = "root@content-server.vlabs.ac.in:/var/www/resources/"
 
     def __init__(self):
         pass
