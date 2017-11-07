@@ -96,6 +96,7 @@
                   "mkdir -p /var/www/resource-generator",
                   "rsync -a /root/labs/resource-generator/build/code /var/www/resource-generator/",
                   "mkdir /var/www/logs",
+                  "mkdir /var/www/data",
                   "chmod -R 777 /var/www/logs",
                   "rm -rf /etc/nginx/sites-enabled/default",
                   "touch /etc/nginx/sites-available/resource-generator",
