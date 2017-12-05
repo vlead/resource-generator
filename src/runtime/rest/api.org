@@ -22,6 +22,7 @@ api = Blueprint('APIs', __name__)
 #+BEGIN_SRC python
 @api.route("/", methods=['GET'])
 def index():
+    current_app.logger.debug("index GET")
     return """<h1>Resource-Generator Running</h1>
 <a href="https://github.com/vlead/resource-generator">https://github.com/vlead/resource-generator</a>"""
 
@@ -46,6 +47,7 @@ def index():
 #+BEGIN_SRC python
 @api.route("/resource", methods=['POST'])
 def resource():
+    current_app.logger.debug("resource POST")
     if request.method == 'POST':
         try:
             url = request.form['url']
@@ -59,7 +61,7 @@ def resource():
 #+NAME: imports_api
 #+BEGIN_SRC python
 from flask import Blueprint, session, request, make_response, \
-    jsonify, url_for, abort
+    jsonify, url_for, abort, current_app
 from runtime.system.system_interface import *
 
 #+END_SRC
